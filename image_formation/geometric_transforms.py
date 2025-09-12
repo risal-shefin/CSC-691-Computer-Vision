@@ -11,9 +11,10 @@ print('Applying Affine Transformation...')
 pts1 = np.float32([[175, 175], [175, 1000], [1000, 175]])
 # Near the center points of the rectangle, circle and hexagon of the transformed image
 pts2 = np.float32([[455, 300], [785, 1140], [870, 590]])
-M = cv.getAffineTransform(pts1,pts2)
-output_img = cv.warpAffine(img,M,(cols,rows))
+M = cv.getAffineTransform(pts1,pts2)    # Affine transformation matrix
+output_img = cv.warpAffine(img, M, (cols,rows))
 
+# Displaying the images
 img_rgb = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 output_img_rgb = cv.cvtColor(output_img, cv.COLOR_BGR2RGB)
 transformed_img_rgb = cv.cvtColor(cv.imread('images/transformed_image.jpg'), cv.COLOR_BGR2RGB)
