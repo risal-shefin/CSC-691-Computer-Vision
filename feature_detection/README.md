@@ -8,7 +8,7 @@ These discrepancies occur due to the limitations and approximations in the SIFT 
 
 ## Part 2: Tuning blob detection performance
 From Part 1, we can observe that some low-contrast blobs near the top of the image were not detected by SIFT.
-To capture these weaker features, we can lower the contrast threshold, which allows SIFT to detect keypoints in regions with less intensity variation.
+To capture these, we can lower the contrast threshold, which allows SIFT to detect keypoints in regions with less intensity variation.
 However, this also increases the chance of detecting noisy or irrelevant points (false positives).
 To mitigate this, we can lower the edge threshold, which helps filter out more features that are more edge-like than blob-like. <br>
 After some experimentation, using `contrastThreshold = 0.01` and `edgeThreshold = 8` produced a good balance between sensitivity and reliability.
@@ -23,6 +23,14 @@ It can be observed that the right image detects more circles overall. However, i
 The edge threshold helps suppress some of this noise, but not all of it. <br>
 An interesting observation is that a few circles present in the bottom area of the left image are missing in the right image.
 This occurs because the edge threshold is more restrictive now, causing certain features to be discarded as edge-like rather than blob-like.
+
+## Part 3: Descriptors
+A SIFT descriptor is a 128-dimensional feature vector that contains the appearance of the region around a keypoint detected by the SIFT algorithm. To compute the descriptor, a region (typically 16x16 pixels) centered on the keypoint is divided into 16 smaller subregions arranged in a 4×4 grid. For each subregion, a histogram of local gradient orientations is calculated, usually with 8 bins representing angles from 0° to 360°. Concatenating these 16 histograms (16 x 8 = 128) produces the final 128-dimensional SIFT descriptor. The following image shows such histograms of a descriptor: <br>
+<img width="50%" alt="image" src="https://github.com/user-attachments/assets/d9bcc938-083e-43cc-9781-fa7bb6c66388" /> <br>
+It can be observed that many histograms show strong peaks around bins 4-6, indicating that the gradients point mostly around 180° - 315°.
+Now let's see the location and orientation of the keypoint corresponding to this descriptor: <br>
+<img width="45%" alt="image" src="https://github.com/user-attachments/assets/797fd5c7-5a71-46e1-8622-9f9d7c892edc" /> <br>
+The blue point marks the SIFT keypoint at location (25.1, 96.5), and the red arrow's length represents the scale (how large the local patch is), the value of which is around 22.16 pixels. Its orientation represents the dominant gradient direction at that location. The angle is indeed around 315°.
 
 ## Part 4: Feature Matching
 The following image shows the top 50 matches of the example image and the transformed image: <br>
