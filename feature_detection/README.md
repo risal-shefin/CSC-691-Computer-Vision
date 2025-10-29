@@ -1,3 +1,5 @@
+The `blob_detection.ipynb` contains the necessary code for this assignment.
+
 ### Part 1: Blob Detection
 The following image shows the blobs detected by SIFT: <br>
 <img width="40%" alt="image" src="https://github.com/user-attachments/assets/235ef4be-b4c9-485b-84ce-4aa4077d9a6d" />
