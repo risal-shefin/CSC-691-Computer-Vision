@@ -34,7 +34,7 @@ The blue point marks the SIFT keypoint at location (25.1, 96.5), and the red arr
 
 ## Part 4: Feature Matching
 The following image shows the top 50 matches of the example image and the transformed image: <br>
-<img width="60%" alt="image" src="https://github.com/user-attachments/assets/5efe0448-f521-4ad0-81fd-0eeaf7246cbb" /> <br>
+<img width="40%" alt="image" src="https://github.com/user-attachments/assets/5efe0448-f521-4ad0-81fd-0eeaf7246cbb" /> <br>
 
 ## Part 5: SIFT matching with your own images
 The following two images show the results of SIFT feature matching using my own captured images: <br>
