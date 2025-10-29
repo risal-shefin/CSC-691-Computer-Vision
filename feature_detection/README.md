@@ -23,3 +23,12 @@ It can be observed that the right image detects more circles overall. However, i
 The edge threshold helps suppress some of this noise, but not all of it. <br>
 An interesting observation is that a few circles present in the bottom area of the left image are missing in the right image.
 This occurs because the edge threshold is more restrictive now, causing certain features to be discarded as edge-like rather than blob-like.
+
+## Part 4: Feature Matching
+The following image shows the top 50 matches of the example image and the transformed image: <br>
+<img width="60%" alt="image" src="https://github.com/user-attachments/assets/5efe0448-f521-4ad0-81fd-0eeaf7246cbb" /> <br>
+
+## Part 5: SIFT matching with your own images
+The following two images show the results of SIFT feature matching using my own captured images: <br>
+<img width="30%" alt="image" src="https://github.com/user-attachments/assets/5b369903-5ab9-4bc2-930b-4d05d969d36d" />
+<img width="30%" alt="image" src="https://github.com/user-attachments/assets/01f50786-e0b1-4213-9042-fafee32f4107" />
